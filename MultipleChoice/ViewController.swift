@@ -72,13 +72,25 @@ class ViewController: UIViewController {
         
       // Use index to check if student answer and correct answer match each other
         var indexNumber = -1
-        for character in studentAnswer {
-        let index = studentAnswer.index(studentAnswer.startIndex, offsetBy: indexNumber)
+        var numberOfCorrectAnswers = 0
+        for character in correctAnswerInput {
+            indexNumber += 1
+        let indexPosition = studentAnswer.index(studentAnswer.startIndex, offsetBy: indexNumber)
+        let characterInStudnetAnswer = studentAnswer[indexPosition]
+            if character == characterInStudnetAnswer {
+                numberOfCorrectAnswers += 1
+            }
+            
         
+            
+            
+            
         }
         
         
         
+        
+        outputMessage.text = "The student answered \(numberOfCorrectAnswers) question(s) correctly."
     }
     
     
