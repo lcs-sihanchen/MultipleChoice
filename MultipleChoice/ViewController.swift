@@ -70,6 +70,15 @@ class ViewController: UIViewController {
         }
         
         
+      // Use index to check if student answer and correct answer match each other
+        var indexNumber = -1
+        for character in studentAnswer {
+        let index = studentAnswer.index(studentAnswer.startIndex, offsetBy: indexNumber)
+        
+        }
+        
+        
+        
     }
     
     
