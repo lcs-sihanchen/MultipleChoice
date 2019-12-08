@@ -37,16 +37,17 @@ class ViewController: UIViewController {
             outputMessage.text = "Please enter an integer value greater than zero."
             return
         }
-        // Avoid empty text for correct answer
-        // Word count has to match question number input
-        guard let correctAnswerInput = correctAnswer.text, correctAnswerInput != "", correctAnswerInput.count == questionNumberInputAsInt else {
-            outputMessage.text = "Please be sure you input exactly \(questionNumberInputAsInt) answers for the answer key."
-            return
-        }
+        
         // Avoid empty text for student answer
         // Word count has to match question number input
         guard let studentAnswer = studentAnswerInput.text, studentAnswer != "", studentAnswer.count == questionNumberInputAsInt else {
             outputMessage.text = "Please be sure you input exactly \(questionNumberInputAsInt) answers for student answers."
+            return
+        }
+        // Avoid empty text for correct answer
+        // Word count has to match question number input
+        guard let correctAnswerInput = correctAnswer.text, correctAnswerInput != "", correctAnswerInput.count == questionNumberInputAsInt else {
+            outputMessage.text = "Please be sure you input exactly \(questionNumberInputAsInt) answers for the answer key."
             return
         }
         // Make sure only "ABCDE" are used
@@ -70,18 +71,18 @@ class ViewController: UIViewController {
         }
         
         
-      // Use index to check if student answer and correct answer match each other
+        // Use index to check if student answer and correct answer match each other
         var indexNumber = -1
         var numberOfCorrectAnswers = 0
         for character in correctAnswerInput {
             indexNumber += 1
-        let indexPosition = studentAnswer.index(studentAnswer.startIndex, offsetBy: indexNumber)
-        let characterInStudnetAnswer = studentAnswer[indexPosition]
+            let indexPosition = studentAnswer.index(studentAnswer.startIndex, offsetBy: indexNumber)
+            let characterInStudnetAnswer = studentAnswer[indexPosition]
             if character == characterInStudnetAnswer {
                 numberOfCorrectAnswers += 1
             }
             
-        
+            
             
             
             
