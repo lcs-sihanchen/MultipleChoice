@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: Properties
     @IBOutlet weak var questionNumber: UITextField!
     @IBOutlet weak var correctAnswer: UITextField!
@@ -20,7 +20,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        questionNumber.delegate = self
+        correctAnswer.delegate = self
+        studentAnswerInput.delegate = self
+        
         outputMessage.text = ""
+        questionNumber.text = ""
+        correctAnswer.text = ""
+        studentAnswerInput.text = ""
+        
+        questionNumber.becomeFirstResponder()
+      
     }
     
     // MARK: Methods
@@ -99,7 +109,9 @@ class ViewController: UIViewController {
         outputMessage.text = "The student answered \(numberOfCorrectAnswers) question(s) correctly."
     }
     
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        outputMessage.text = ""
+    }
     
     
 }
