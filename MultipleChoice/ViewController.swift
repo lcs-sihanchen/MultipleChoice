@@ -90,10 +90,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // Each time the code runs in the loop the index number will + 1
             indexNumber += 1
             let indexPosition = studentAnswer.index(studentAnswer.startIndex, offsetBy: indexNumber)
-            // Make the index position an actual string
-            let characterInStudnetAnswer = studentAnswer[indexPosition]
+          
             // If the student input is equivalent to correct answer, then correct answers + 1
-            if character == characterInStudnetAnswer {
+            if character == studentAnswer[indexPosition] {
                 numberOfCorrectAnswers += 1
             }
             
